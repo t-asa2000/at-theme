@@ -51,7 +51,7 @@ Theme Name : AT Theme
 .wp-article h2{
     font-weight: 300;
     font-size: 34px;
-    padding: 34px 0;
+    padding: 34px 20px;
     border-bottom: 2px solid var(--theme-color);
 }
 
@@ -91,30 +91,16 @@ ul.sitemenu ul{
     }
 }
 
-/* tablet */
-@media screen and (min-width: 500px) and (max-width: 799px){
-    .wp-article h2{
-        text-align: center;
-    }
-}
-
-/* desktop */
-@media screen and (min-width: 800px){
-    .wp-article h2 {
-        padding-left: 34px;
-        padding-right: 34px;
-    }
-}
 
 /*dark theme : ブラウザのダークテーマ対応 */
 @media (prefers-color-scheme: dark) {
     .wp-widget ul{
-        border-top-color: #444444;
+        border-top-color: #444;
     }
     .wp-widget ul li{
-        border-bottom-color: #444444;
+        border-bottom-color: #444;
     }
     .wp-widget ul li:hover{
-        background-color: #333333;
+        background-color: #333;
     }
 }

@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+        <div class="content">
             <div class="main">
                 <article>
                     <h1><?php single_cat_title(); ?></h1>

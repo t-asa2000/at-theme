@@ -1,7 +1,16 @@
 <?php get_header(); ?>
+        <div class="content">
             <div class="main">
+                <?php
+                    // 現在のページ番号を取得
+                    $current_pgae = get_query_var( 'paged' ); 
+                    $current_pgae = $current_pgae == 0 ? '1' : $current_pgae;
+                    // 全ページ数を取得
+                    $max_pages = $wp_query->max_num_pages ;
+                ?>
+                <?php if($current_pgae == 1):?>
                 <article>
-                    <div class="name-box" style="margin-top:30px;">
+                    <div class="name-box">
                     <img class="icon" src="<?php echo esc_url(get_template_directory_uri()); ?>/no_icon_people.png"></a>
                     <h1><?php echo get_the_author(); ?></h1>
                     </div>
@@ -9,7 +18,9 @@
                 <article>
                     <h1>プロフィール</h1>
                     <?php echo wpautop(get_the_author_meta('user_description')); ?>
+                    <p>リンク : <a href="<?php the_author_meta(user_url); ?>"><?php the_author_meta(user_url);?></a></p>
                 </article>
+                <?php endif;?>
                 <article>
                     <h1><?php echo get_the_author(); ?>の投稿</h1>
                     <ul class="article-list">
@@ -21,12 +32,6 @@
                 </article>
                 <p>
                 <?php 
-                    // 現在のページ番号を取得
-                    $current_pgae = get_query_var( 'paged' ); 
-                    $current_pgae = $current_pgae == 0 ? '1' : $current_pgae;
-                    // 全ページ数を取得
-                    $max_pages = $wp_query->max_num_pages ;
-                    
                     for ($i = 1; $i <= $max_pages; $i++) {
                         if($i == $current_pgae){
                             echo '<label class="meta" style="background-color: var(--theme-color); color: #fff; font-weight:600;">' .$i. '</label>';

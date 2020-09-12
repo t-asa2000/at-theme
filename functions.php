@@ -17,7 +17,7 @@ function at_setup() {
         'id'            => 'top-1',
         'before_widget' => '<div class="wp-widget">',
         'after_widget' => '</div>',
-        'before_title'  => '<h1>',
+        'before_title'  => '<h1 style="text-align: center;border: none;">',
         'after_title'  => '</h1>',
         )
       );

@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+        <div class="content">
             <div class="main">
                 <article>
                     <h1><?php echo get_the_date('Y年n月'); ?>に公開した記事</h1>
