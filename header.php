@@ -34,6 +34,6 @@
 'container' => 'ul',
 'menu_class' => 'sitemenu'
             ));
-    		<div class="sitemenu-background"></div>
             ?>
+    		<div class="sitemenu-background"></div>
         </header>

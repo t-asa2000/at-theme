@@ -1,6 +1,8 @@
 :root{
     /* color sample */
     --color-mastodon:#008cff;
+    --color-misskey:#2ba3bc;
+    --color-misskey-v12:#86b300;
     --color-hatenablog:#444;
     --color-qiita:#55C500;
     --color-twitter:#1DA1F2;
@@ -19,11 +21,11 @@
     --theme-color:#847400;
     --theme-color-dark:#847400;
     --default-font-color:#1c1c1c;
-    --default-font-color-dark:#cecece;
+    --default-font-color-dark:#eee;
     --link-color:#84790D;
     --link-color-dark:#e7b0c8;
     --back-color:#fafafa;
-    --back-color-dark:#292929;
+    --back-color-dark:#171717;
     --header-font-color:var(--default-font-color);
     --header-font-color-dark:var(--default-font-color-dark);
     --header-back-color:var(--back-color);
@@ -164,9 +166,27 @@ header{
     border-bottom:0.5px solid #eee;
 }
 
+header p.sitename {
+    font-family: 'Noto Sans JP';
+    line-height: 50px;
+    white-space: nowrap;
+    font-size: 26px;
+    user-select:none;
+    font-weight:300;
+    margin:0;
+}
+
+header p.sitename a{
+	display:block;
+}
+
+header p.sitename:hover{
+	opacity:0.6;
+}
+
 header img.siteicon{
     max-width: 250px;
-    margin: 3px 0 3px 13px;
+    margin: 3px 13px 3px 0;
     height: 44px;
     border-radius: 4px;
     z-index:2;
@@ -181,7 +201,7 @@ img.siteicon.compact{
     border-radius: 50%;
 }
 
-img.siteicon,div.name-box img.icon,img.banner{
+img.siteicon,div.name-box img.icon,img.banner,header p.sitename{
     -webkit-transition: opacity 0.8s ease, filter 0.8s ease;
     -moz-transition: opacity 0.8s ease, filter 0.8s ease;
     -o-transition: opacity 0.8s ease, filter 0.8s ease;
@@ -274,7 +294,7 @@ ul.article-list li h1{
 
 label.button,ul.sitemenu li,ul.menu li,label.sitemenu-button{
     height: 42px;
-    padding:5px 10px 0;
+    padding:5px 12.3px 0;
     text-align: center;
     line-height: 42px;
     font-size: 16px;
@@ -299,10 +319,10 @@ label.button{
     background-color: var(--btn-color);
     color: #fefefe;
     margin: 5px;
-    height: unset;
     padding: 0 20px;
     display: inline-block;
     width: auto;
+    height:unset;
     word-wrap: break-word;
     border: 2px solid var(--btn-color);
     border-radius: 4px;
@@ -342,6 +362,8 @@ label.meta{
     padding:3px 5px;
     display: inline-block;
     position: relative;
+    word-break: keep-all;
+    white-space: pre;
 }
 
 label.meta a{
@@ -432,6 +454,10 @@ footer{
     label.meta{
         font-size: 13px;
     }
+    label.button{
+        padding: unset;
+        width: 42vw;
+    }
     label.button.large{
         margin: 10px 5px;
         display: block;
@@ -447,6 +473,9 @@ footer{
 
 /* smartphone + tablet */
 @media screen and (max-width: 799px){
+	header{
+		padding:0 15px;
+	}
     header label.sitemenu-button{
         position: fixed;
         margin: 0 3px 0 0;
@@ -480,6 +509,7 @@ footer{
         display: inline-block;        
         z-index:1;
         min-width:280px;
+        max-width:280px;
     }
     header ul.sitemenu li{
     	padding:0 30px;
@@ -488,11 +518,11 @@ footer{
     header ul.sitemenu,header div.siteicon.right{
     	background-color: var(--back-color);
     	position:fixed;
-        right:-100vw;
-        transition: left .5s,right .5s;
-        -moz-transition: left .5s,right .5s;
-        -o-transition: left .5s,right .5s;
-        -webkit-transition: left .5s,right .5s;
+        right:-280px;
+        transition: left .8s,right .8s;
+        -moz-transition: left .8s,right .8s;
+        -o-transition: left .8s,right .8s;
+        -webkit-transition: left .8s,right .8s;
     }
     header div.siteicon.right{
     	top:0px;
@@ -507,6 +537,7 @@ footer{
    	}
    	header div.sitemenu-background{
    		display:none;
+   		margin:0 -15px;
    		width: 100vw;
 	    height: 100vh;
 	    position: fixed;
@@ -570,24 +601,29 @@ footer{
     .pc-hide{
         display: none !important;
     }
-    
+    header{
+    	padding:0 50px;
+    	width:calc(100% - 100px);
+    }
+    header p.sitename{
+    	margin-right:15px;
+    }
 	header img.siteicon.right{
-		margin: 3px 13px 3px 0;
+		margin: 3px 0 3px 13px;
 	}
     header ul.sitemenu{
-        margin: 0 13px;
+        margin: 0;
         width:100%;
         height:65px;
     }
     header ul.sitemenu li{
         padding-bottom: 3px;
         display: inline-block;
-        min-width: 100px;
         white-space: normal;
     }    
     header ul.sitemenu li a{
-        margin: -5px -10px -3px;
-        padding: 5px 10px 3px;
+        margin: -5px -12.3px -3px;
+        padding: 5px 12.3px 3px;
     }
     header label.sitemenu-button{
         display: none;
@@ -609,8 +645,8 @@ footer{
         margin-right: 20px;
     }
     div.main{
-        margin: 0 auto;
-        width:100%;
+        margin: 0 auto 0 0;
+        max-width:800px;
     }
     div.title-box{
         margin: 50px 0 -50px;
@@ -618,8 +654,9 @@ footer{
     }
     div.title-box h1{
         padding: 0;
-        max-width: calc(100vw - 100px);
+        width: calc(100vw - 100px);
         margin: 0;
+        max-width: 1200px;
     }
     footer{
     	margin:0 50px;

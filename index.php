@@ -17,9 +17,9 @@
                 <article>
                     <p style="margin-right:10px;text-align: right;">
 						<label class="button" style="--btn-color:var(--color-rss);margin:0 5px;line-height: 30px;padding: 0 10px;">
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>/feed/">RSS</a>
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>feed/">RSS</a>
 						</label>
-						<a href="https://feedly.com/i/subscription/feed%2F<?php echo urlencode(esc_url( home_url( '/' ) )); ?>%2Ffeed%2F" target="blank">
+						<a href="https://feedly.com/i/subscription/feed%2F<?php echo urlencode(esc_url( home_url( '/' ) )); ?>feed%2F" target="blank">
 							<img id="feedlyFollow" src="http://s3.feedly.com/img/follows/feedly-follow-rectangle-flat-medium_2x.png" alt="follow us in feedly" style="max-height:34px;vertical-align: bottom;" class="banner">
 						</a>
 					</p>
@@ -35,6 +35,8 @@
                     for ($i = 1; $i <= $max_pages; $i++) {
                         if($i == $current_pgae){
                             echo '<label class="meta" style="background-color: var(--theme-color); color: #fff; font-weight:600;">' .$i. '</label>';
+                        }else if($i == 1){
+                        	echo '<label class="meta"><a href="..">1</a></label>';
                         }else{
                             echo '<label class="meta"><a href="';
                             echo esc_url(home_url('/'));

@@ -35,6 +35,8 @@
                     for ($i = 1; $i <= $max_pages; $i++) {
                         if($i == $current_pgae){
                             echo '<label class="meta" style="background-color: var(--theme-color); color: #fff; font-weight:600;">' .$i. '</label>';
+                        }else if($i == 1){
+                        	echo '<label class="meta"><a href="..">1</a></label>';
                         }else{
                             echo '<label class="meta"><a href="?paged=' .$i. '">' .$i. '</a></label>';
                         }
